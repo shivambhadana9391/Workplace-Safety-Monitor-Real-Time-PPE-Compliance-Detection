@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# AI Model weights (download separately)
+*.pt
+*.onnx
+*.weights
+
+# Large media files
+*.gif
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# Output / generated files
+output/
+
+# Node.js
+node_modules/
+package-lock.json
+
+# Report documents
+*.docx
+*.pdf
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Environment variables
+.env
+.env.local
