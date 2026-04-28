@@ -1,0 +1,42 @@
+# Run with: docker-compose up --build
+# Access at: http://localhost:8000
+
+services:
+  safety-monitor:
+    build: .
+    container_name: safety-monitor
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./best.pt:/app/best.pt
+      - ./yolo12n.pt:/app/yolo12n.pt
+      - ./test_videos:/app/test_videos
+      - ./output:/app/output
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+
+# ==============================================================================
+# DEPLOYMENT INSTRUCTIONS (README)
+# ==============================================================================
+#
+# 1. PREREQUISITES:
+#    - Docker and Docker Compose installed.
+#    - Camera or Video file available.
+#
+# 2. RUNNING THE SYSTEM:
+#    $ docker-compose up --build
+#
+# 3. ACCESSING THE DASHBOARD:
+#    Navigate to http://localhost:8000 in your web browser.
+#
+# 4. CHANGING SOURCES:
+#    - Use the dashboard UI to switch between Webcam (0), RTSP, or local files.
+#    - Local files must be placed in the project root or test_videos/ to be 
+#      accessible via the volume mounts defined above.
+#
+# 5. TROUBLESHOOTING:
+#    - If you see "NO SIGNAL", check if the source path/index is correct.
+#    - Ensure the 'output' directory exists for video saving.
+#
+# ==============================================================================
